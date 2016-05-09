@@ -1,1 +1,3 @@
-export const queryParam = () => {};
+export const queryParam = url => ({
+  url,
+});
