@@ -1,0 +1,20 @@
+sudo: false
+language: node_js
+cache:
+  directories:
+    - node_modules
+notifications:
+  email: false
+node_js:
+  - '5'
+  - '6'
+before_script:
+  - npm prune
+script:
+  - npm test
+after_success:
+  - npm run semantic-release
+  - if [[ $TRAVIS_NODE_VERSION == "6" ]]; then npm run coverage:report:codecov; fi
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
