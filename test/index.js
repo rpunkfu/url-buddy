@@ -12,3 +12,17 @@ describe('query-param =>', (it) => {
     t.is(typeof queryParam('https://github.com').url, 'string');
   });
 });
+
+describe('query-param . valid =>', (it) => {
+  it('returns true for valid urls', async (t) => {
+    t.true(queryParam('https://github.com').valid);
+    t.true(queryParam('https://google.com').valid);
+    t.true(queryParam('https://nodejs.org').valid);
+  });
+
+  it('returns false for invalid urls', async (t) => {
+    t.false(queryParam('obviously I am invalid...').valid);
+    t.false(queryParam('https://dude--do-you-even').valid);
+    t.false(queryParam('foo https://google.combar').valid);
+  });
+});
