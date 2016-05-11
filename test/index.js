@@ -1,19 +1,37 @@
+import _ from 'lodash';
 import { describe } from 'ava-spec';
 import { queryParam } from '../src';
 
-describe('query-param =>', (it) => {
-  it('is a constructor', async (t) => {
-    t.is(typeof queryParam, 'function');
-  });
-
-  it('returns object when called with `url` property on it', async (t) => {
-    t.is(typeof queryParam(), 'object');
-    t.is(typeof queryParam().url, 'undefined');
-    t.is(typeof queryParam('https://github.com').url, 'string');
+describe('queryParam =>', (it) => {
+  it('returns filled object when called with proper `url`', async (t) => {
+    t.true(_.isObject(queryParam()));
+    t.false(_.isEmpty(queryParam('https://github.com')));
   });
 });
 
-describe('query-param . valid =>', (it) => {
+describe('queryParam . host =>', (it) => {
+  it('returns hosts for valid urls', async (t) => {
+    t.is(queryParam('https://github.com').host, 'github.com');
+    t.is(queryParam('https://google.com').host, 'google.com');
+    t.is(queryParam('https://nodejs.org').host, 'nodejs.org');
+  });
+
+  it('returns undefined for invalid urls', async (t) => {
+    t.is(queryParam('obviously I am invalid...').host, undefined);
+    t.is(queryParam('https://dude--do-you-even').host, undefined);
+    t.is(queryParam('foo https://google.combar').host, undefined);
+  });
+});
+
+describe('queryParam . url =>', (it) => {
+  it('returns exactly the same url as passed to queryParam', async (t) => {
+    t.is(queryParam('https://github.com').url, 'https://github.com');
+    t.is(queryParam('https://google.com').url, 'https://google.com');
+    t.is(queryParam('https://nodejs.org').url, 'https://nodejs.org');
+  });
+});
+
+describe('queryParam . valid =>', (it) => {
   it('returns true for valid urls', async (t) => {
     t.true(queryParam('https://github.com').valid);
     t.true(queryParam('https://google.com').valid);
