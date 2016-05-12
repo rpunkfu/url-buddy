@@ -23,6 +23,20 @@ describe('queryParam . host =>', (it) => {
   });
 });
 
+describe('queryParam . protocol =>', (it) => {
+  it('returns protocol for valid urls', async (t) => {
+    t.is(queryParam('https://google.de').protocol, 'https');
+    t.is(queryParam('http://github.com').protocol, 'http');
+    t.is(queryParam('ftp://133.12.4.23').protocol, 'ftp');
+  });
+
+  it('returns undefined for invalid urls', async (t) => {
+    t.is(queryParam('obviously I am invalid...').protocol, undefined);
+    t.is(queryParam('https://dude--do-you-even').protocol, undefined);
+    t.is(queryParam('foo https://google.combar').protocol, undefined);
+  });
+});
+
 describe('queryParam . url =>', (it) => {
   it('returns exactly the same url as passed to queryParam', async (t) => {
     t.is(queryParam('https://github.com').url, 'https://github.com');
