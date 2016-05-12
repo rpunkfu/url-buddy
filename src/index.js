@@ -1,7 +1,8 @@
-import { extractHost, isValidUrl } from './util';
+import { extractHost, extractProtocol, isValidUrl } from './util';
 
 const getAllProperties = url => ({
   host: extractHost(url),
+  protocol: extractProtocol(url),
   url,
   valid: isValidUrl(url),
 });
