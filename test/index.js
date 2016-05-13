@@ -45,9 +45,9 @@ describe('queryParam . port =>', (it) => {
   });
 
   it('returns undefined for invalid urls', async (t) => {
-    t.is(queryParam('obviously I am invalid...').protocol, undefined);
-    t.is(queryParam('https://dude--do-you-even').protocol, undefined);
-    t.is(queryParam('foo https://google.combar').protocol, undefined);
+    t.is(queryParam('obviously I am invalid...').port, undefined);
+    t.is(queryParam('https://dude--do-you-even').port, undefined);
+    t.is(queryParam('foo https://google.combar').port, undefined);
   });
 });
 
