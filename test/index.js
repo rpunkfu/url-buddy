@@ -23,6 +23,20 @@ describe('queryParam . host =>', (it) => {
   });
 });
 
+describe('queryParam . port =>', (it) => {
+  it('returns port for valid urls', async (t) => {
+    t.is(queryParam('https://google.de:32000').port, '32000');
+    t.is(queryParam('http://133.12.43.23:222').port, '222');
+    t.is(queryParam('ftp://133.12.4.23:19000').port, '19000');
+  });
+
+  it('returns undefined for invalid urls', async (t) => {
+    t.is(queryParam('obviously I am invalid...').protocol, undefined);
+    t.is(queryParam('https://dude--do-you-even').protocol, undefined);
+    t.is(queryParam('foo https://google.combar').protocol, undefined);
+  });
+});
+
 describe('queryParam . protocol =>', (it) => {
   it('returns protocol for valid urls', async (t) => {
     t.is(queryParam('https://google.de').protocol, 'https');
