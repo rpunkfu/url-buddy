@@ -19,7 +19,6 @@ describe('queryParam . host =>', (it) => {
   it('returns undefined for invalid urls', async (t) => {
     t.is(queryParam('obviously I am invalid...').host, undefined);
     t.is(queryParam('https://dude--do-you-even').host, undefined);
-    t.is(queryParam('foo https://google.combar').host, undefined);
   });
 });
 
@@ -33,7 +32,6 @@ describe('queryParam . hostname =>', (it) => {
   it('returns undefined for invalid urls', async (t) => {
     t.is(queryParam('obviously I am invalid...').hostname, undefined);
     t.is(queryParam('https://dude--do-you-even').hostname, undefined);
-    t.is(queryParam('foo https://google.combar').hostname, undefined);
   });
 });
 
@@ -47,7 +45,6 @@ describe('queryParam . port =>', (it) => {
   it('returns undefined for invalid urls', async (t) => {
     t.is(queryParam('obviously I am invalid...').port, undefined);
     t.is(queryParam('https://dude--do-you-even').port, undefined);
-    t.is(queryParam('foo https://google.combar').port, undefined);
   });
 });
 
@@ -61,7 +58,6 @@ describe('queryParam . protocol =>', (it) => {
   it('returns undefined for invalid urls', async (t) => {
     t.is(queryParam('obviously I am invalid...').protocol, undefined);
     t.is(queryParam('https://dude--do-you-even').protocol, undefined);
-    t.is(queryParam('foo https://google.combar').protocol, undefined);
   });
 });
 
@@ -83,6 +79,5 @@ describe('queryParam . valid =>', (it) => {
   it('returns false for invalid urls', async (t) => {
     t.false(queryParam('obviously I am invalid...').valid);
     t.false(queryParam('https://dude--do-you-even').valid);
-    t.false(queryParam('foo https://google.combar').valid);
   });
 });
