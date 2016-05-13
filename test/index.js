@@ -23,6 +23,20 @@ describe('queryParam . host =>', (it) => {
   });
 });
 
+describe('queryParam . hostname =>', (it) => {
+  it('returns hostnames for valid urls', async (t) => {
+    t.is(queryParam('https://google.de:32000').hostname, 'google.de:32000');
+    t.is(queryParam('http://133.12.43.23:222').hostname, '133.12.43.23:222');
+    t.is(queryParam('ftp://133.12.4.23:19000').hostname, '133.12.4.23:19000');
+  });
+
+  it('returns undefined for invalid urls', async (t) => {
+    t.is(queryParam('obviously I am invalid...').hostname, undefined);
+    t.is(queryParam('https://dude--do-you-even').hostname, undefined);
+    t.is(queryParam('foo https://google.combar').hostname, undefined);
+  });
+});
+
 describe('queryParam . port =>', (it) => {
   it('returns port for valid urls', async (t) => {
     t.is(queryParam('https://google.de:32000').port, '32000');
