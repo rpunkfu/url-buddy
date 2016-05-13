@@ -1,6 +1,6 @@
 {
   "name": "query-param",
-  "version": "0.0.0-semantically-released",
+  "version": "1.2.0",
   "description": "Parse URL strings and extract multiple properties from them.",
   "main": "lib",
   "repository": {
