@@ -14,7 +14,6 @@ script:
   - npm test
 after_success:
   - npm run build
-  - if [[ $TRAVIS_NODE_VERSION == "5" ]]; then npm run semantic-release; fi
   - if [[ $TRAVIS_NODE_VERSION == "5" ]]; then npm run coverage:report:codecov; fi
 branches:
   except:
