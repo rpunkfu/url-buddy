@@ -33,6 +33,14 @@ describe('queryParam . hostname =>', (it) => {
   });
 });
 
+describe('queryParam . pathname =>', (it) => {
+  it('returns pathname for urls', async (t) => {
+    t.is(queryParam('https://github.com:100/rpunkfu#hi').pathname, '/rpunkfu');
+    t.is(queryParam('http://fb.com/user/likes?a=b#c').pathname, '/user/likes');
+    t.is(queryParam('ftp://11.12.42.23/api/users/1').pathname, '/api/users/1');
+  });
+});
+
 describe('queryParam . port =>', (it) => {
   it('returns port for valid urls', async (t) => {
     t.is(queryParam('https://google.de:32000').port, '32000');

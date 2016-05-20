@@ -1,6 +1,7 @@
 import {
   extractHash,
   extractHostname,
+  extractPathname,
   extractPort,
   extractProtocol,
   extractQuery,
@@ -13,6 +14,7 @@ const getExtractedProperties = (url) => ({
   hash: extractHash(url),
   host: `${extractHostname(url)}:${extractPort(url)}`,
   hostname: extractHostname(url),
+  pathname: extractPathname(url),
   port: extractPort(url),
   protocol: extractProtocol(url),
   query: extractQuery(url),
