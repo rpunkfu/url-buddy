@@ -1,6 +1,9 @@
 {
     "presets": ["stage-0", "es2015"],
-    "plugins": ["transform-runtime"],
+    "plugins": [
+        "add-module-exports",
+        "transform-runtime"
+    ],
     "ignore": "test/",
     "env": {
         "development": {
