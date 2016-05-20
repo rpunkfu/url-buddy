@@ -1,6 +1,6 @@
 {
   "name": "url-buddy",
-  "version": "0.3.0",
+  "version": "0.3.5",
   "description": "Parse URL strings and extract multiple properties from them.",
   "main": "lib",
   "repository": {
