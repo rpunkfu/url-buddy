@@ -26,7 +26,7 @@ parsedUrl.host     // 'github.com:32199'
 parsedUrl.hostname // 'github.com'
 parsedUrl.pathname // '/users/tj'
 parsedUrl.port     // '32199'
-parsedUrl.protocol // 'https
+parsedUrl.protocol // 'https'
 parsedUrl.query    // { bar: 'baz', qux: true }
 parsedUrl.url      // 'https://github.com:32199/users/tj#foo?bar=baz#qux'
 parsedUrl.valid    // true
