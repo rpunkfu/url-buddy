@@ -61,6 +61,16 @@ describe('queryParam . protocol =>', (it) => {
   });
 });
 
+describe('queryParam . query =>', (it) => {
+  it('returns query as an object for passed url', async (t) => {
+    t.deepEqual(queryParam('https://google.com/?user1=morty#admin').query,
+      { user1: 'morty', admin: true });
+    t.deepEqual(queryParam('https://github.com/tj?tab=repositories').query,
+      { tab: 'repositories' });
+    t.deepEqual(queryParam('https://facebook.com?').query, {});
+  });
+});
+
 describe('queryParam . url =>', (it) => {
   it('returns exactly the same url as passed to queryParam', async (t) => {
     t.is(queryParam('https://github.com').url, 'https://github.com');
@@ -79,18 +89,5 @@ describe('queryParam . valid =>', (it) => {
   it('returns false for invalid urls', async (t) => {
     t.false(queryParam('obviously I am invalid...').valid);
     t.false(queryParam('https://dude--do-you-even').valid);
-  });
-});
-
-describe('queryParam . query =>', (it) => {
-  it('returns query as an object for passed url', async (t) => {
-    t.deepEqual(
-      queryParam('https://google.com/?user1=morty#admin').query,
-      { user1: 'morty', admin: true });
-    t.deepEqual(
-      queryParam('https://github.com/tj?tab=repositories').query,
-      { tab: 'repositories' });
-    t.deepEqual(
-      queryParam('https://facebook.com?').query, {});
   });
 });
