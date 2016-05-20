@@ -1,9 +1,12 @@
 import { extractWithRegex } from './util';
 import {
+  hashRegex,
   hostnameRegex,
   portRegex,
   protocolRegex,
 } from './regex';
+
+export const extractHash = extractWithRegex(hashRegex());
 
 export const extractHostname = extractWithRegex(hostnameRegex());
 

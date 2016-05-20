@@ -9,6 +9,14 @@ describe('queryParam =>', (it) => {
   });
 });
 
+describe('queryParam . hash =>', (it) => {
+  it('returns hosts for valid urls', async (t) => {
+    t.is(queryParam('https://google.de#Hey-oo!').hash, 'Hey-oo!');
+    t.is(queryParam('http://133.12.43.23#foo?bar=baz').hash, 'foo');
+    t.is(queryParam('ftp://133.12.4.23#').hash, '');
+  });
+});
+
 describe('queryParam . host =>', (it) => {
   it('returns hosts for valid urls', async (t) => {
     t.is(queryParam('https://google.de:32000').host, 'google.de:32000');
