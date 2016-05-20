@@ -11,9 +11,9 @@ describe('queryParam =>', (it) => {
 
 describe('queryParam . host =>', (it) => {
   it('returns hosts for valid urls', async (t) => {
-    t.is(queryParam('https://github.com').host, 'github.com');
-    t.is(queryParam('https://google.com').host, 'google.com');
-    t.is(queryParam('https://nodejs.org').host, 'nodejs.org');
+    t.is(queryParam('https://google.de:32000').host, 'google.de:32000');
+    t.is(queryParam('http://133.12.43.23:222').host, '133.12.43.23:222');
+    t.is(queryParam('ftp://133.12.4.23:19000').host, '133.12.4.23:19000');
   });
 
   it('returns undefined for invalid urls', async (t) => {
@@ -24,9 +24,9 @@ describe('queryParam . host =>', (it) => {
 
 describe('queryParam . hostname =>', (it) => {
   it('returns hostnames for valid urls', async (t) => {
-    t.is(queryParam('https://google.de:32000').hostname, 'google.de:32000');
-    t.is(queryParam('http://133.12.43.23:222').hostname, '133.12.43.23:222');
-    t.is(queryParam('ftp://133.12.4.23:19000').hostname, '133.12.4.23:19000');
+    t.is(queryParam('https://google.de:32000').hostname, 'google.de');
+    t.is(queryParam('http://133.12.43.23:222').hostname, '133.12.43.23');
+    t.is(queryParam('ftp://133.12.4.23:19000').hostname, '133.12.4.23');
   });
 
   it('returns undefined for invalid urls', async (t) => {

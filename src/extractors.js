@@ -1,11 +1,11 @@
 import { extractWithRegex } from './util';
 import {
-  hostRegex,
+  hostnameRegex,
   portRegex,
   protocolRegex,
 } from './regex';
 
-export const extractHost = extractWithRegex(hostRegex());
+export const extractHostname = extractWithRegex(hostnameRegex());
 
 export const extractPort = extractWithRegex(portRegex());
 

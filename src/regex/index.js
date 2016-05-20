@@ -1,3 +1,3 @@
-export { default as hostRegex } from './hostRegex';
+export { default as hostnameRegex } from './hostnameRegex';
 export { default as portRegex } from './portRegex';
 export { default as protocolRegex } from './protocolRegex';
