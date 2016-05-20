@@ -15,11 +15,6 @@ describe('queryParam . host =>', (it) => {
     t.is(queryParam('http://133.12.43.23:222').host, '133.12.43.23:222');
     t.is(queryParam('ftp://133.12.4.23:19000').host, '133.12.4.23:19000');
   });
-
-  it('returns undefined for invalid urls', async (t) => {
-    t.is(queryParam('obviously I am invalid...').host, undefined);
-    t.is(queryParam('https://dude--do-you-even').host, undefined);
-  });
 });
 
 describe('queryParam . hostname =>', (it) => {
@@ -27,11 +22,6 @@ describe('queryParam . hostname =>', (it) => {
     t.is(queryParam('https://google.de:32000').hostname, 'google.de');
     t.is(queryParam('http://133.12.43.23:222').hostname, '133.12.43.23');
     t.is(queryParam('ftp://133.12.4.23:19000').hostname, '133.12.4.23');
-  });
-
-  it('returns undefined for invalid urls', async (t) => {
-    t.is(queryParam('obviously I am invalid...').hostname, undefined);
-    t.is(queryParam('https://dude--do-you-even').hostname, undefined);
   });
 });
 
@@ -41,11 +31,6 @@ describe('queryParam . port =>', (it) => {
     t.is(queryParam('http://133.12.43.23:222').port, '222');
     t.is(queryParam('ftp://133.12.4.23:19000').port, '19000');
   });
-
-  it('returns undefined for invalid urls', async (t) => {
-    t.is(queryParam('obviously I am invalid...').port, undefined);
-    t.is(queryParam('https://dude--do-you-even').port, undefined);
-  });
 });
 
 describe('queryParam . protocol =>', (it) => {
@@ -53,11 +38,6 @@ describe('queryParam . protocol =>', (it) => {
     t.is(queryParam('https://google.de').protocol, 'https');
     t.is(queryParam('http://github.com').protocol, 'http');
     t.is(queryParam('ftp://133.12.4.23').protocol, 'ftp');
-  });
-
-  it('returns undefined for invalid urls', async (t) => {
-    t.is(queryParam('obviously I am invalid...').protocol, undefined);
-    t.is(queryParam('https://dude--do-you-even').protocol, undefined);
   });
 });
 
