@@ -24,5 +24,5 @@ export const extractQuery = (url) => {
     .filter(pair => !!pair)
     .map(pair => pair.split('='))
     .reduce((query, [key, value]) =>
-      Object.assign({}, query, { [key]: (value || true) }), {});
+      Object.assign({}, query, { [key]: value || true }), {});
 };
