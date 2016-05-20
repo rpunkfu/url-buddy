@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { describe } from 'ava-spec';
-import { urlBuddy } from '../src';
+import urlBuddy from '../src';
 
 describe('urlBuddy\t\t=>', (it) => {
   it('returns filled object when called with proper `url`', async (t) => {
