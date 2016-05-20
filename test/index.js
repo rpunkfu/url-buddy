@@ -19,7 +19,7 @@ describe('urlBuddy . hash\t=>', (it) => {
 
 describe('urlBuddy . host\t=>', (it) => {
   it('returns hosts for valid urls', async (t) => {
-    t.is(urlBuddy('https://google.de:32000').host, 'google.de:32000');
+    t.is(urlBuddy('https://google.de').host, 'google.de');
     t.is(urlBuddy('http://133.12.43.23:222').host, '133.12.43.23:222');
     t.is(urlBuddy('ftp://133.12.4.23:19000').host, '133.12.4.23:19000');
   });
