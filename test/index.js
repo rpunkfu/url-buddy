@@ -81,3 +81,16 @@ describe('queryParam . valid =>', (it) => {
     t.false(queryParam('https://dude--do-you-even').valid);
   });
 });
+
+describe('queryParam . query =>', (it) => {
+  it('returns query as an object for passed url', async (t) => {
+    t.deepEqual(
+      queryParam('https://google.com/?user1=morty#admin').query,
+      { user1: 'morty', admin: true });
+    t.deepEqual(
+      queryParam('https://github.com/tj?tab=repositories').query,
+      { tab: 'repositories' });
+    t.deepEqual(
+      queryParam('https://facebook.com?').query, {});
+  });
+});

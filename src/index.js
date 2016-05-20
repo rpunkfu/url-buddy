@@ -1,4 +1,9 @@
-import { extractHost, extractPort, extractProtocol } from './extractors';
+import {
+  extractHost,
+  extractPort,
+  extractProtocol,
+  extractQuery
+} from './extractors';
 import { isValidUrl } from './validators';
 
 const getBaseProperties = ({ url, valid }) => ({ url, valid });
@@ -8,6 +13,7 @@ const getExtractedProperties = (url) => ({
   hostname: `${extractHost(url)}:${extractPort(url)}`,
   port: extractPort(url),
   protocol: extractProtocol(url),
+  query: extractQuery(url),
   ...getBaseProperties({ url, valid: true }),
 });
 
