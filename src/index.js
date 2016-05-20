@@ -21,7 +21,7 @@ const getExtractedProperties = (url) => ({
   ...getBaseProperties({ url, valid: true }),
 });
 
-export const queryParam = (url) => {
+export const urlBuddy = (url) => {
   if (!isValidUrl(url)) { return getBaseProperties({ url, valid: false }); }
   return getExtractedProperties(url);
 };

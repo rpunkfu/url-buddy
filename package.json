@@ -1,15 +1,15 @@
 {
-  "name": "query-param",
-  "version": "0.0.0-semantically-released",
+  "name": "url-buddy",
+  "version": "0.1.0",
   "description": "Parse URL strings and extract multiple properties from them.",
   "main": "lib",
   "repository": {
     "type": "git",
-    "url": "https://github.com/oskarcieslik/query-param.git"
+    "url": "https://github.com/oskarcieslik/url-buddy.git"
   },
-  "homepage": "https://github.com/oskarcieslik/query-param#readme",
+  "homepage": "https://github.com/oskarcieslik/url-buddy#readme",
   "bugs": {
-    "url": "https://github.com/oskarcieslik/query-param/issues"
+    "url": "https://github.com/oskarcieslik/url-buddy/issues"
   },
   "author": {
     "name": "Oskar Cieslik",
