@@ -19,7 +19,17 @@ $ npm install --save url-buddy
 ```js
 import urlBuddy from 'url-buddy';
 
-// That's all folks!
+const parsedUrl = urlBuddy('https://github.com:32199/users/tj#foo?bar=baz#qux');
+
+parsedUrl.hash     // 'foo'
+parsedUrl.host     // 'github.com:32199'
+parsedUrl.hostname // 'github.com'
+parsedUrl.pathname // '/users/tj'
+parsedUrl.port     // '32199'
+parsedUrl.protocol // 'https
+parsedUrl.query    // { bar: 'baz', qux: true }
+parsedUrl.url      // 'https://github.com:32199/users/tj#foo?bar=baz#qux'
+parsedUrl.valid    // true
 ```
 
 ## License
