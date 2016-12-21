@@ -1,6 +1,6 @@
 {
   "name": "url-buddy",
-  "version": "0.3.5",
+  "version": "1.0.0",
   "description": "Parse URL strings and extract multiple properties from them.",
   "main": "lib",
   "repository": {
@@ -12,9 +12,8 @@
     "url": "https://github.com/oskarcieslik/url-buddy/issues"
   },
   "author": {
-    "name": "Oskar Cieslik",
-    "email": "oskar.cieslik@gmail.com",
-    "url": "oskarcieslik.com"
+    "name": "rpunkfu",
+    "email": "oskarcieslik@gmail.com"
   },
   "license": "MIT",
   "scripts": {
