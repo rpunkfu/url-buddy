@@ -1,13 +1,4 @@
 {
-    "presets": ["stage-0", "es2015"],
-    "plugins": [
-        "add-module-exports",
-        "transform-runtime"
-    ],
-    "ignore": "test/",
-    "env": {
-        "development": {
-            "sourceMaps": "inline"
-        }
-    }
+    "presets": ["latest"],
+    "plugins": ["transform-object-rest-spread"]
 }

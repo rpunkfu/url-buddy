@@ -1,28 +1,29 @@
-import { extractWithRegex } from './util';
-import {
-  hashRegex,
-  hostnameRegex,
-  pathnameRegex,
-  portRegex,
-  protocolRegex,
-} from './regex';
+import * as regex from './regex'
 
-export const extractHash = extractWithRegex(hashRegex());
+const extractRegex = regex => (url) => {
+  const match = url.match(regex)
+  return match && match.length > 1 ? match[1] : ''
+}
 
-export const extractHostname = extractWithRegex(hostnameRegex());
+export const hash = extractRegex(regex.hash)
+export const port = extractRegex(regex.port)
+export const hostname = extractRegex(regex.hostname)
+export const pathname = extractRegex(regex.pathname)
+export const protocol = extractRegex(regex.protocol)
 
-export const extractPathname = extractWithRegex(pathnameRegex());
+export const host = (url) => {
+  const port = extractRegex(regex.port)(url)
+  const hostname = extractRegex(regex.hostname)(url)
 
-export const extractPort = extractWithRegex(portRegex());
+  return hostname + (port ? `:${port}` : '')
+}
 
-export const extractProtocol = extractWithRegex(protocolRegex());
-
-export const extractQuery = (url) => {
-  if (url.split('?').length !== 2) { return {}; }
+export const query = (url) => {
+  if (url.split('?').length !== 2) { return {} }
   return url.split('?')[1]
     .split('#')
     .filter(pair => !!pair)
     .map(pair => pair.split('='))
     .reduce((query, [key, value]) =>
-      Object.assign({}, query, { [key]: value || true }), {});
-};
+      Object.assign({}, query, { [key]: value || true }), {})
+}

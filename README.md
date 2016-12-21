@@ -11,27 +11,27 @@
 ## Install
 
 ```bash
-$ npm install --save url-buddy
+λ yarn add url-buddy
 ```
 
 ## Usage
 
 ```js
-import urlBuddy from 'url-buddy';
+import urlBuddy from 'url-buddy'
 
-const parsedUrl = urlBuddy('https://github.com:32199/users/tj#foo?bar=baz#qux');
+const parsedUrl = urlBuddy('https://github.com:32199/users/iggy#foo?bar=baz#qux')
 
 parsedUrl.hash     // 'foo'
 parsedUrl.host     // 'github.com:32199'
 parsedUrl.hostname // 'github.com'
-parsedUrl.pathname // '/users/tj'
+parsedUrl.pathname // '/users/iggy'
 parsedUrl.port     // '32199'
 parsedUrl.protocol // 'https'
 parsedUrl.query    // { bar: 'baz', qux: true }
-parsedUrl.url      // 'https://github.com:32199/users/tj#foo?bar=baz#qux'
+parsedUrl.url      // 'https://github.com:32199/users/iggy#foo?bar=baz#qux'
 parsedUrl.valid    // true
 ```
 
 ## License
 
-MIT © [Oskar Cieslik](https://tldrlegal.com/license/mit-license)
+MIT © [rpunkfu](https://tldrlegal.com/license/mit-license)

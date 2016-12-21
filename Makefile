@@ -1,43 +1,29 @@
-AVA="node_modules/ava/cli.js"
-BABEL="node_modules/babel-cli/bin/babel.js"
-CODECOV="node_modules/codecov/bin/codecov"
-ESLINT="node_modules/eslint/bin/eslint.js"
-NYC="./node_modules/.bin/nyc"
-SEMANTIC_RELEASE="node_modules/semantic-release/bin/semantic-release.js"
+NYC		  = node_modules/.bin/nyc
+AVA			= node_modules/ava/cli.js
+BABEL		= node_modules/babel-cli/bin/babel.js
+ESLINT	= node_modules/eslint/bin/eslint.js
+CODECOV	= node_modules/codecov/bin/codecov
 
-SRC_DIR="src/"
-LIB_DIR="lib/"
+SRC_DIR = src/
+LIB_DIR = lib/
 
-AVA_FLAGS="--verbose"
-
-ava:
-	@$(AVA) $(AVA_FLAGS)
-
-ava-watch:
-	@$(AVA) $(AVA_FLAGS) --watch
-
-babel-build:
+build:
 	@$(BABEL) $(SRC_DIR) --out-dir $(LIB_DIR)
 
-babel-watch:
+start:
 	@$(BABEL) $(SRC_DIR) --out-dir $(LIB_DIR) --watch
 
-coverage:
-	@$(NYC) $(AVA)
-
-coverage-report-html: coverage
-	@$(NYC) report --reporter=html
-
-coverage-report-lcov: coverage
-	@$(NYC) report --reporter=text-lcov
-
-coverage-report-codecov: coverage
-	@make coverage-report-lcov > coverage.lcov && $(CODECOV) -e $TRAVIS_NODE_VERSION
+test:
+	@$(AVA) --verbose
 
 lint:
 	@$(ESLINT) $(SRC_DIR)
 
-run-test: lint ava
+coverage:
+	@$(NYC) $(AVA)
 
-semantic-release:
-	@$(SEMANTIC_RELEASE) pre && npm publish && $(SEMANTIC_RELEASE) post
+codecov: coverage
+	@$(NYC) report --reporter=text-lcov > \
+		coverage.lcov && $(CODECOV) -e $TRAVIS_NODE_VERSION
+
+.PHONY: build start test lint coverage codecov

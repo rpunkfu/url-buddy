@@ -1,27 +1,20 @@
-import {
-  extractHash,
-  extractHostname,
-  extractPathname,
-  extractPort,
-  extractProtocol,
-  extractQuery,
-} from './extractors';
-import { isValidUrl } from './validators';
+import * as extract from './extractors'
+import { isValidUrl } from './validators'
 
-const getBaseProperties = ({ url, valid }) => ({ url, valid });
+const getBaseProperties = ({ url, valid }) => ({ url, valid })
 
 const getExtractedProperties = (url) => ({
-  hash: extractHash(url),
-  host: extractHostname(url) + (extractPort(url) ? `:${extractPort(url)}` : ''),
-  hostname: extractHostname(url),
-  pathname: extractPathname(url),
-  port: extractPort(url),
-  protocol: extractProtocol(url),
-  query: extractQuery(url),
-  ...getBaseProperties({ url, valid: true }),
-});
+  hash: extract.hash(url),
+  port: extract.port(url),
+  host: extract.host(url),
+  query: extract.query(url),
+  hostname: extract.hostname(url),
+  pathname: extract.pathname(url),
+  protocol: extract.protocol(url),
+  ...getBaseProperties({ url, valid: true })
+})
 
 export default (url) => {
-  if (!isValidUrl(url)) { return getBaseProperties({ url, valid: false }); }
-  return getExtractedProperties(url);
-};
+  if (!isValidUrl(url)) { return getBaseProperties({ url, valid: false }) }
+  return getExtractedProperties(url)
+}
